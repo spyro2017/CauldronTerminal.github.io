@@ -1,0 +1,70 @@
+body {
+  background-color: black;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.boot-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  animation: fadeOut 2s ease 2s forwards;
+}
+
+.spinner {
+  animation: spin 1.5s linear infinite;
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+  }
+}
+
+input#user-input {
+  background: black;
+  border: none;
+  color: #00ffcc;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  border-top: 1px solid #00ffcc40;
+}
+
+.terminal-section {
+  padding: 20px;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #111;
+  padding: 0.5em;
+  border: 1px solid #333;
+  margin-top: 0.5em;
+}
+
+details pre {
+  white-space: pre-wrap;
+  padding: 0.8em;
+  background-color: #090909;
+  color: #b0ffcc;
+  border-left: 2px solid #00ffcc80;
+}

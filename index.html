@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cauldron Terminal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #00ff99;
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    #logo-container {
+      text-align: center;
+      padding: 20px 0 10px 0;
+      color: #00ff99;
+    }
+
+    #logo {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    #spinner {
+      font-size: 2em;
+      animation: spin 2s linear infinite;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    #terminal {
+      height: calc(100vh - 120px);
+      width: 100vw;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #input-line {
+      display: flex;
+      padding: 0 20px 20px 20px;
+    }
+
+    #prompt {
+      margin-right: 5px;
+    }
+
+    #user-input {
+      background: none;
+      border: none;
+      color: #00ff99;
+      font-family: monospace;
+      font-size: 1em;
+      flex-grow: 1;
+      outline: none;
+    }
+
+    .line {
+      margin-bottom: 5px;
+    }
+
+    .terminal-section {
+      padding: 20px;
+      display: none;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #111;
+      padding: 0.5em;
+      border: 1px solid #333;
+      margin-top: 0.5em;
+    }
+
+    details pre {
+      white-space: pre-wrap;
+      padding: 0.8em;
+      background-color: #090909;
+      color: #b0ffcc;
+      border-left: 2px solid #00ffcc80;
+    }
+  </style>
+</head>
+<body>
+  <div id="logo-container">
+    <h1 id="logo">CAULDRON TERMINAL</h1>
+    <div id="spinner">∇</div>
+  </div>
+
+  <div id="terminal">
+    <div class="line">Δ CAULDRON SYSTEMS INITIALIZING...</div>
+  </div>
+
+  <div id="input-line">
+    <span id="prompt">&gt;</span>
+    <input type="text" id="user-input" autocomplete="off" autofocus />
+  </div>
+
+  <section id="facility-logs" class="terminal-section">
+    <h2>Facility Logs — Cauldron Lambda</h2>
+
+    <details>
+      <summary>🔓 LAM-01A — Staff Log (Dr. Emil Navarro)</summary>
+      <pre>
+The vault door is finally operational. Redundant safety measures have been 
+tested twice over. If something *does* come through, it won’t get out. 
+We’re opening the portal for the first calibration pulse in 48 hours.
+      </pre>
+    </details>
+
+    <details>
+      <summary>🔓 LAM-02C — AI Log (VANTA.SUBNODE.LMB)</summary>
+      <pre>
+[↻ Booting...] Portal signature: STABLE
+Energy flux within expected variance. Ambient air temperature has increased 
+by 0.7°C in observation chamber. Surface flora observed on mechanical walkway. 
+Alert status: NOMINAL.
+      </pre>
+    </details>
+
+    <details>
+      <summary>🔓 LAM-03B — Staff Log (Dr. Mira Caldwell)</summary>
+      <pre>
+The other side is lush. Verdant fields, blue moss, and towers of coral-like 
+wood. No sign of sentient life. We deployed a probe—lost it within 3 minutes. 
+Logs returned partial footage of something massive moving behind the trees.
+      </pre>
+    </details>
+
+    <details>
+      <summary>🔓 LAM-04D — AI Log (VANTA.SUBNODE.LMB)</summary>
+      <pre>
+[ALERT: CONTAINMENT BREACH IMMINENT]
+Portal boundary no longer contains native environmental field. 
+Flora expanding into research dome. Air quality unstable. 
+Vault door remains OPEN. Manual override required.
+      </pre>
+    </details>
+
+    <details>
+      <summary>🔓 LAM-05F — Staff Log (Technician M. Rojas)</summary>
+      <pre>
+Navarro’s dead. I watched him get wrapped in vines like they *wanted* him. 
+Caldwell initiated vault lock but the override failed—glass cracked. 
+We detonated the fallback disruptor to force a collapse. 
+I'm initiating full lockdown.
+      </pre>
+    </details>
+
+    <details>
+      <summary>🔓 LAM-06X — Final AI Log (VANTA.SUBNODE.LMB)</summary>
+      <pre>
+[Ω Ω Ω] SYSTEM FAILURE... PORTAL CLOSED... CAULDRON SEALED.
+Remaining personnel: UNKNOWN.
+You were right to run.
+      </pre>
+    </details>
+
+    <h2 style="margin-top: 2em;">Corrupted Logs</h2>
+
+    <details>
+      <summary>❌ DEL-00A — AI Log (Delta)</summary>
+      <pre>
+[{ERROR: Data stream fragmented. Reconstructing AI core...]
+...voice split into 3...ECHO LOOP...I know you're listening.
+      </pre>
+    </details>
+
+    <details>
+      <summary>❌ ETA-01C — Emergency Broadcast (Eta)</summary>
+      <pre>
+[RELAY INTERRUPTED - MASSIVE CHARGE BUILDUP DETECTED]
+[Coordinates match Lambda incident]
+[INCOMING...]—
+      </pre>
+    </details>
+
+    <details>
+      <summary>❌ THA-07F — Deepwatch Log (Theta)</summary>
+      <pre>
+...lights outside the dome again...
+...they shouldn't know we're down here.
+—Control, respond. Control, respond.
+      </pre>
+    </details>
+
+    <details>
+      <summary>❌ DEL-03B — Staff Log (Delta)</summary>
+      <pre>
+I tried rerouting the core but the VANTA system *refused*.
+She’s not just echoing anymore. She’s making decisions.
+We never programmed her to choose.
+      </pre>
+    </details>
+  </section>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const input = document.getElementById('user-input');
+    const spinner = document.getElementById('spinner');
+    const facilityLogs = document.getElementById('facility-logs');
+
+    const commandHistory = [];
+    let historyIndex = -1;
+
+    function appendLine(text = "") {
+      const line = document.createElement('div');
+      line.className = "line";
+      line.textContent = text;
+      terminal.appendChild(line);
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+
+    function executeCommand(inputValue) {
+  const inputText = inputValue.trim();
+  if (!inputText) return;
+  appendLine(`> ${inputText}`);
+  const parts = inputText.split(' ');
+  const cmd = parts[0].toUpperCase();
+  const args = parts.slice(1);
+
+  if (cmd === "ACCESS" && args[0] && args[0].toUpperCase() === "LOGS") {
+    facilityLogs.style.display = 'block';
+    appendLine("> Accessing Cauldron Lambda logs...");
+    facilityLogs.scrollIntoView({ behavior: "smooth" });
+  } else if (commands[cmd]) {
+    appendLine(commands[cmd](args));
+  } else {
+    appendLine("> Unknown command. Type 'HELP' for a list of commands.");
+  }
+}
+
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const value = input.value;
+        commandHistory.unshift(value);
+        historyIndex = -1;
+        executeCommand(value);
+        input.value = '';
+      }
+    });
+
+    function bootSequence() {
+      const sequence = [
+        "> Initializing dimensional handshake...",
+        "> ▓▓▒▒░░ SYNC ATTEMPT 01 — Eidolon Vale [CALIBRATING BIOSIGNS]",
+        "> Warning: Ambient biomass exceeds safe transmission levels",
+        "> Recalculating anchor points...",
+        "",
+        "> ▓▓▓▒░ SYNC ATTEMPT 02 — Ashreach [ATTUNING HEAT SHIELDING]",
+        "> Caution: Interference from residual screams detected",
+        "> Re-routing psychic dampeners...",
+        "",
+        "> ▓▓▓▓░ SYNC ATTEMPT 03 — Scarn [STABILIZING GRAVITY VECTOR]",
+        "> Alert: Surface erosion at 9.3% per second",
+        "> Initiating hard-bake seal protocol...",
+        "",
+        "> Cross-dimensional identity hash in progress...",
+        "> Matching anomalies:",
+        "  >> [UNKNOWN]",
+        "  >> [UNKNOWN]",
+        "  >> [...FOUND]",
+        "",
+        "> Subject Signature: **UNSTABLE**",
+        "> Correction Probability: [REDACTED]%",
+        "",
+        "> AI Core Δ requests override confirmation...",
+        '> “The stars do not align. We must drag the right ones into orbit.”',
+        "",
+        "> Portal calibration complete.",
+        "> > STAND BY",
+        "> > DO NOT BLINK",
+        "> > DO NOT BREATHE DEEP",
+        "",
+        "> Engaging tether...",
+        "",
+        "> █ PORTAL INITIATION IN 5 █",
+        "> █ PORTAL INITIATION IN 4 █",
+        "> █ PORTAL INITIATION IN 3 █",
+        "> █ PORTAL INITIATION IN 2 █",
+        "> █ PORTAL INITIATION IN — █",
+        "> [ERROR]",
+        "",
+        "> …",
+        '> ∇ "It saw you."',
+        "",
+        "> Connection stabilized.",
+        "> > Proceed, Subject.",
+        "> Loading command modules...",
+        "> Awaiting user input. Type 'HELP' for available commands."
+      ];
+      let i = 0;
+      function showNextLine() {
+        if (i < sequence.length) {
+          appendLine(sequence[i]);
+          i++;
+          setTimeout(showNextLine, 800);
+        } else {
+          spinner.style.display = "none";
+        }
+      }
+      setTimeout(showNextLine, 800);
+    }
+
+    window.onload = () => {
+      input.focus();
+      bootSequence();
+    };
+
+    window.addEventListener("click", () => input.focus());
+  </script>
+</body>
+</html>
